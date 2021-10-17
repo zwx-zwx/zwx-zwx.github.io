@@ -2069,7 +2069,6 @@ pre code {
 }
 .posts-expand .post-meta-container time {
   border-bottom: 1px dashed #999;
-  cursor: pointer;
 }
 .post-meta {
   display: flex;
@@ -2612,7 +2611,7 @@ ul.breadcrumb li:last-child {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #471a04;
+  background: #ff4eff;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
