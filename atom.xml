@@ -99,7 +99,7 @@
     <link href="http://zwx-zwx.github.io/child/Life-gossip-%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/"/>
     <id>http://zwx-zwx.github.io/child/Life-gossip-%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/</id>
     <published>2021-08-05T06:06:12.000Z</published>
-    <updated>2021-10-17T05:51:06.999Z</updated>
+    <updated>2021-10-17T09:02:35.744Z</updated>
     
     
       
@@ -119,9 +119,9 @@
     
     
     
-    <category term="碎记" scheme="http://zwx-zwx.github.io/child/categories/%E7%A2%8E%E8%AE%B0/"/>
+    <category term="生活" scheme="http://zwx-zwx.github.io/child/categories/%E7%94%9F%E6%B4%BB/"/>
     
-    <category term="saying" scheme="http://zwx-zwx.github.io/child/categories/%E7%A2%8E%E8%AE%B0/saying/"/>
+    <category term="saying" scheme="http://zwx-zwx.github.io/child/categories/%E7%94%9F%E6%B4%BB/saying/"/>
     
     
   </entry>
@@ -131,7 +131,7 @@
     <link href="http://zwx-zwx.github.io/child/Life-gossip-%E5%85%B3%E4%BA%8E%E5%86%9C%E6%9D%91%E7%9A%84%E5%B0%8F%E6%83%B3%E6%B3%95/"/>
     <id>http://zwx-zwx.github.io/child/Life-gossip-%E5%85%B3%E4%BA%8E%E5%86%9C%E6%9D%91%E7%9A%84%E5%B0%8F%E6%83%B3%E6%B3%95/</id>
     <published>2021-08-04T08:14:06.000Z</published>
-    <updated>2021-10-17T06:27:02.683Z</updated>
+    <updated>2021-10-17T09:02:18.501Z</updated>
     
     
       
@@ -144,7 +144,9 @@
     
     
     
-    <category term="碎记" scheme="http://zwx-zwx.github.io/child/categories/%E7%A2%8E%E8%AE%B0/"/>
+    <category term="生活" scheme="http://zwx-zwx.github.io/child/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    <category term="碎想" scheme="http://zwx-zwx.github.io/child/categories/%E7%94%9F%E6%B4%BB/%E7%A2%8E%E6%83%B3/"/>
     
     
   </entry>

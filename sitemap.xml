@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://zwx-zwx.github.io/child/Life-gossip-%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/</loc>
+    
+    <lastmod>2021-10-17</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zwx-zwx.github.io/child/Life-gossip-%E5%85%B3%E4%BA%8E%E5%86%9C%E6%9D%91%E7%9A%84%E5%B0%8F%E6%83%B3%E6%B3%95/</loc>
+    
+    <lastmod>2021-10-17</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://zwx-zwx.github.io/child/Review-Movie-%E3%80%8C%E8%8A%B1%E6%9D%9F%E8%88%AC%E7%9A%84%E6%81%8B%E7%88%B1%E3%80%8D%E8%A7%82%E5%90%8E%E6%84%9F/</loc>
     
     <lastmod>2021-10-17</lastmod>
@@ -37,20 +51,6 @@
   </url>
   
   <url>
-    <loc>http://zwx-zwx.github.io/child/Life-gossip-%E5%85%B3%E4%BA%8E%E5%86%9C%E6%9D%91%E7%9A%84%E5%B0%8F%E6%83%B3%E6%B3%95/</loc>
-    
-    <lastmod>2021-10-17</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zwx-zwx.github.io/child/Life-gossip-%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/</loc>
-    
-    <lastmod>2021-10-17</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://zwx-zwx.github.io/child/categories/index.html</loc>
     
     <lastmod>2021-08-05</lastmod>
@@ -74,14 +74,14 @@
 
   
   <url>
-    <loc>http://zwx-zwx.github.io/child/tags/%E7%BA%AA%E5%BF%B5/</loc>
+    <loc>http://zwx-zwx.github.io/child/tags/%E4%BF%9D%E5%AF%86/</loc>
     <lastmod>2021-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://zwx-zwx.github.io/child/tags/%E4%BF%9D%E5%AF%86/</loc>
+    <loc>http://zwx-zwx.github.io/child/tags/%E7%BA%AA%E5%BF%B5/</loc>
     <lastmod>2021-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -111,14 +111,7 @@
   </url>
   
   <url>
-    <loc>http://zwx-zwx.github.io/child/categories/%E7%A2%8E%E8%AE%B0/</loc>
-    <lastmod>2021-10-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://zwx-zwx.github.io/child/categories/%E7%94%9F%E6%B4%BB/%E7%A2%8E%E6%83%B3/</loc>
+    <loc>http://zwx-zwx.github.io/child/categories/%E7%94%9F%E6%B4%BB/saying/</loc>
     <lastmod>2021-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -132,7 +125,7 @@
   </url>
   
   <url>
-    <loc>http://zwx-zwx.github.io/child/categories/%E7%A2%8E%E8%AE%B0/saying/</loc>
+    <loc>http://zwx-zwx.github.io/child/categories/%E7%94%9F%E6%B4%BB/%E7%A2%8E%E6%83%B3/</loc>
     <lastmod>2021-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
