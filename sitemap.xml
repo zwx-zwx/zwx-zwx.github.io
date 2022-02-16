@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://zwx-zwx.github.io/categories/index.html</loc>
-    
-    <lastmod>2022-02-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://zwx-zwx.github.io/repository/index.html</loc>
     
     <lastmod>2022-02-16</lastmod>
@@ -68,15 +59,6 @@
     <loc>http://zwx-zwx.github.io/Log-Now-Log-Free/</loc>
     
     <lastmod>2021-10-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://zwx-zwx.github.io/tags/index.html</loc>
-    
-    <lastmod>2021-08-05</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
