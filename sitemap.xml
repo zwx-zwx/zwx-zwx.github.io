@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://zwx-zwx.github.io/%E7%94%9F%E6%B4%BB%E5%9C%A8%E5%90%91%E6%88%91%E9%9D%A0%E6%8B%A2/</loc>
+    
+    <lastmod>2022-02-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://zwx-zwx.github.io/%E5%BF%83%E7%83%A6%E6%84%8F%E4%B9%B1%E5%B0%8F%E8%AE%B0/</loc>
     
     <lastmod>2022-02-16</lastmod>
@@ -73,15 +82,6 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>http://zwx-zwx.github.io/%E7%94%9F%E6%B4%BB%E5%9C%A8%E5%90%91%E6%88%91%E9%9D%A0%E6%8B%A2/</loc>
-    
-    <lastmod>2021-11-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   <url>
     <loc>http://zwx-zwx.github.io/</loc>
@@ -98,28 +98,7 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>http://zwx-zwx.github.io/tags/%E9%95%BF%E7%AF%87%E6%8A%A5%E5%91%8A/</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
-  
-  <url>
-    <loc>http://zwx-zwx.github.io/categories/%E7%94%9F%E6%B4%BB/</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://zwx-zwx.github.io/categories/%E7%94%9F%E6%B4%BB/%E7%A2%8E%E6%83%B3/</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
   
   <url>
     <loc>http://zwx-zwx.github.io/categories/%E6%9C%AD%E8%AE%B0-%E7%94%B5%E5%BD%B1/</loc>

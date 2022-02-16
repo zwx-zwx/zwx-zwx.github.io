@@ -6,7 +6,7 @@
   <link href="http://zwx-zwx.github.io/atom.xml" rel="self"/>
   
   <link href="http://zwx-zwx.github.io/"/>
-  <updated>2021-11-26T04:39:58.694Z</updated>
+  <updated>2022-02-16T12:51:04.014Z</updated>
   <id>http://zwx-zwx.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://zwx-zwx.github.io/%E7%94%9F%E6%B4%BB%E5%9C%A8%E5%90%91%E6%88%91%E9%9D%A0%E6%8B%A2/"/>
     <id>http://zwx-zwx.github.io/%E7%94%9F%E6%B4%BB%E5%9C%A8%E5%90%91%E6%88%91%E9%9D%A0%E6%8B%A2/</id>
     <published>2021-09-20T14:35:26.000Z</published>
-    <updated>2021-11-26T04:39:58.694Z</updated>
+    <updated>2022-02-16T12:51:04.014Z</updated>
     
     
       
@@ -37,12 +37,8 @@
     
     
     
-    <category term="生活" scheme="http://zwx-zwx.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
+    <category term="生活随想" scheme="http://zwx-zwx.github.io/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E6%83%B3/"/>
     
-    <category term="碎想" scheme="http://zwx-zwx.github.io/categories/%E7%94%9F%E6%B4%BB/%E7%A2%8E%E6%83%B3/"/>
-    
-    
-    <category term="长篇报告" scheme="http://zwx-zwx.github.io/tags/%E9%95%BF%E7%AF%87%E6%8A%A5%E5%91%8A/"/>
     
   </entry>
   
