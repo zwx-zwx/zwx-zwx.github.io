@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>zwx-blog</title>
-  <icon>http://zwx-zwx.github.io/icon.png</icon>
+  <icon>http://d-zwx.gitee.io/blog/icon.png</icon>
   
-  <link href="http://zwx-zwx.github.io/atom.xml" rel="self"/>
+  <link href="http://d-zwx.gitee.io/blog/atom.xml" rel="self"/>
   
-  <link href="http://zwx-zwx.github.io/"/>
+  <link href="http://d-zwx.gitee.io/blog/"/>
   <updated>2022-02-16T12:51:04.014Z</updated>
-  <id>http://zwx-zwx.github.io/</id>
+  <id>http://d-zwx.gitee.io/blog/</id>
   
   <author>
     <name>zwx</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>生活在向我靠拢</title>
-    <link href="http://zwx-zwx.github.io/%E7%94%9F%E6%B4%BB%E5%9C%A8%E5%90%91%E6%88%91%E9%9D%A0%E6%8B%A2/"/>
-    <id>http://zwx-zwx.github.io/%E7%94%9F%E6%B4%BB%E5%9C%A8%E5%90%91%E6%88%91%E9%9D%A0%E6%8B%A2/</id>
+    <link href="http://d-zwx.gitee.io/blog/blog"/>
+    <id>http://d-zwx.gitee.io/blog/blog</id>
     <published>2021-09-20T14:35:26.000Z</published>
     <updated>2022-02-16T12:51:04.014Z</updated>
     
@@ -37,15 +37,15 @@
     
     
     
-    <category term="生活随想" scheme="http://zwx-zwx.github.io/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E6%83%B3/"/>
+    <category term="生活随想" scheme="http://d-zwx.gitee.io/blog/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E6%83%B3/"/>
     
     
   </entry>
   
   <entry>
     <title>2021/09/11</title>
-    <link href="http://zwx-zwx.github.io/2021-09-11/"/>
-    <id>http://zwx-zwx.github.io/2021-09-11/</id>
+    <link href="http://d-zwx.gitee.io/blog/blog"/>
+    <id>http://d-zwx.gitee.io/blog/blog</id>
     <published>2021-09-13T14:35:26.000Z</published>
     <updated>2022-02-16T12:45:25.255Z</updated>
     
@@ -60,17 +60,17 @@
     
     
     
-    <category term="生活随想" scheme="http://zwx-zwx.github.io/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E6%83%B3/"/>
+    <category term="生活随想" scheme="http://d-zwx.gitee.io/blog/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E6%83%B3/"/>
     
     
-    <category term="保密" scheme="http://zwx-zwx.github.io/tags/%E4%BF%9D%E5%AF%86/"/>
+    <category term="保密" scheme="http://d-zwx.gitee.io/blog/tags/%E4%BF%9D%E5%AF%86/"/>
     
   </entry>
   
   <entry>
     <title>在发牢骚</title>
-    <link href="http://zwx-zwx.github.io/%E5%BF%83%E7%83%A6%E6%84%8F%E4%B9%B1%E5%B0%8F%E8%AE%B0/"/>
-    <id>http://zwx-zwx.github.io/%E5%BF%83%E7%83%A6%E6%84%8F%E4%B9%B1%E5%B0%8F%E8%AE%B0/</id>
+    <link href="http://d-zwx.gitee.io/blog/blog"/>
+    <id>http://d-zwx.gitee.io/blog/blog</id>
     <published>2021-08-10T08:53:36.000Z</published>
     <updated>2022-02-16T12:46:22.315Z</updated>
     
@@ -85,17 +85,17 @@
     
     
     
-    <category term="牢骚" scheme="http://zwx-zwx.github.io/categories/%E7%89%A2%E9%AA%9A/"/>
+    <category term="牢骚" scheme="http://d-zwx.gitee.io/blog/categories/%E7%89%A2%E9%AA%9A/"/>
     
     
-    <category term="保密" scheme="http://zwx-zwx.github.io/tags/%E4%BF%9D%E5%AF%86/"/>
+    <category term="保密" scheme="http://d-zwx.gitee.io/blog/tags/%E4%BF%9D%E5%AF%86/"/>
     
   </entry>
   
   <entry>
     <title>「花束般的恋爱」观后感</title>
-    <link href="http://zwx-zwx.github.io/%E3%80%8C%E8%8A%B1%E6%9D%9F%E8%88%AC%E7%9A%84%E6%81%8B%E7%88%B1%E3%80%8D%E8%A7%82%E5%90%8E%E6%84%9F/"/>
-    <id>http://zwx-zwx.github.io/%E3%80%8C%E8%8A%B1%E6%9D%9F%E8%88%AC%E7%9A%84%E6%81%8B%E7%88%B1%E3%80%8D%E8%A7%82%E5%90%8E%E6%84%9F/</id>
+    <link href="http://d-zwx.gitee.io/blog/blog"/>
+    <id>http://d-zwx.gitee.io/blog/blog</id>
     <published>2021-08-05T07:58:13.000Z</published>
     <updated>2022-02-16T12:44:01.198Z</updated>
     
@@ -110,15 +110,15 @@
     
     
     
-    <category term="札记 - 电影" scheme="http://zwx-zwx.github.io/categories/%E6%9C%AD%E8%AE%B0-%E7%94%B5%E5%BD%B1/"/>
+    <category term="札记 - 电影" scheme="http://d-zwx.gitee.io/blog/categories/%E6%9C%AD%E8%AE%B0-%E7%94%B5%E5%BD%B1/"/>
     
     
   </entry>
   
   <entry>
     <title>Log Now Log Free</title>
-    <link href="http://zwx-zwx.github.io/Log-Now-Log-Free/"/>
-    <id>http://zwx-zwx.github.io/Log-Now-Log-Free/</id>
+    <link href="http://d-zwx.gitee.io/blog/blog"/>
+    <id>http://d-zwx.gitee.io/blog/blog</id>
     <published>2021-08-02T11:32:14.000Z</published>
     <updated>2022-02-16T12:45:05.344Z</updated>
     
@@ -134,7 +134,7 @@
     
     
     
-    <category term="生活随想" scheme="http://zwx-zwx.github.io/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E6%83%B3/"/>
+    <category term="生活随想" scheme="http://d-zwx.gitee.io/blog/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E6%83%B3/"/>
     
     
   </entry>

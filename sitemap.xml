@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://zwx-zwx.github.io/%E7%94%9F%E6%B4%BB%E5%9C%A8%E5%90%91%E6%88%91%E9%9D%A0%E6%8B%A2/</loc>
+    <loc>http://d-zwx.gitee.io/blog/blog</loc>
     
     <lastmod>2022-02-16</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>http://zwx-zwx.github.io/%E5%BF%83%E7%83%A6%E6%84%8F%E4%B9%B1%E5%B0%8F%E8%AE%B0/</loc>
+    <loc>http://d-zwx.gitee.io/blog/blog</loc>
     
     <lastmod>2022-02-16</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>http://zwx-zwx.github.io/2021-09-11/</loc>
+    <loc>http://d-zwx.gitee.io/blog/blog</loc>
     
     <lastmod>2022-02-16</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>http://zwx-zwx.github.io/Log-Now-Log-Free/</loc>
+    <loc>http://d-zwx.gitee.io/blog/blog</loc>
     
     <lastmod>2022-02-16</lastmod>
     
@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>http://zwx-zwx.github.io/%E3%80%8C%E8%8A%B1%E6%9D%9F%E8%88%AC%E7%9A%84%E6%81%8B%E7%88%B1%E3%80%8D%E8%A7%82%E5%90%8E%E6%84%9F/</loc>
+    <loc>http://d-zwx.gitee.io/blog/blog</loc>
     
     <lastmod>2022-02-16</lastmod>
     
@@ -47,7 +47,7 @@
   </url>
   
   <url>
-    <loc>http://zwx-zwx.github.io/tags/index.html</loc>
+    <loc>http://d-zwx.gitee.io/blog/tags/index.html</loc>
     
     <lastmod>2022-02-16</lastmod>
     
@@ -56,7 +56,7 @@
   </url>
   
   <url>
-    <loc>http://zwx-zwx.github.io/categories/index.html</loc>
+    <loc>http://d-zwx.gitee.io/blog/categories/index.html</loc>
     
     <lastmod>2022-02-16</lastmod>
     
@@ -65,7 +65,7 @@
   </url>
   
   <url>
-    <loc>http://zwx-zwx.github.io/repository/index.html</loc>
+    <loc>http://d-zwx.gitee.io/blog/repository/index.html</loc>
     
     <lastmod>2022-02-16</lastmod>
     
@@ -74,7 +74,7 @@
   </url>
   
   <url>
-    <loc>http://zwx-zwx.github.io/about/index.html</loc>
+    <loc>http://d-zwx.gitee.io/blog/about/index.html</loc>
     
     <lastmod>2022-02-16</lastmod>
     
@@ -84,7 +84,7 @@
   
 
   <url>
-    <loc>http://zwx-zwx.github.io/</loc>
+    <loc>http://d-zwx.gitee.io/blog</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -92,7 +92,7 @@
 
   
   <url>
-    <loc>http://zwx-zwx.github.io/tags/%E4%BF%9D%E5%AF%86/</loc>
+    <loc>http://d-zwx.gitee.io/blog/tags/%E4%BF%9D%E5%AF%86/</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -101,21 +101,21 @@
 
   
   <url>
-    <loc>http://zwx-zwx.github.io/categories/%E6%9C%AD%E8%AE%B0-%E7%94%B5%E5%BD%B1/</loc>
+    <loc>http://d-zwx.gitee.io/blog/categories/%E6%9C%AD%E8%AE%B0-%E7%94%B5%E5%BD%B1/</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://zwx-zwx.github.io/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E6%83%B3/</loc>
+    <loc>http://d-zwx.gitee.io/blog/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E6%83%B3/</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://zwx-zwx.github.io/categories/%E7%89%A2%E9%AA%9A/</loc>
+    <loc>http://d-zwx.gitee.io/blog/categories/%E7%89%A2%E9%AA%9A/</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
