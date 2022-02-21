@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>SEIII作业1--云服务器部署jenkins | zwx-blog</title>
+  <meta name="description" content="概要 记录内容：近日，在云服务器上部署jenkins并进行git项目的自动化构建与部署 官方文档：https:&#x2F;&#x2F;www.jenkins.io&#x2F;zh&#x2F;doc&#x2F;pipeline&#x2F;tour&#x2F;getting-started&#x2F; emoji in markdown : https:&#x2F;&#x2F;github.com&#x2F;ikatyang&#x2F;emoji-cheat-sheet   实现了以下要求：  ​      运行环境">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SEIII作业1--云服务器部署jenkins">
+<meta property="og:url" content="http://zwx-zwx.github.io/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2jenkins%E5%AE%9E%E8%B7%B5%E6%8A%A5%E5%91%8A/index.html">
+<meta property="og:site_name" content="zwx-blog">
+<meta property="og:description" content="概要 记录内容：近日，在云服务器上部署jenkins并进行git项目的自动化构建与部署 官方文档：https:&#x2F;&#x2F;www.jenkins.io&#x2F;zh&#x2F;doc&#x2F;pipeline&#x2F;tour&#x2F;getting-started&#x2F; emoji in markdown : https:&#x2F;&#x2F;github.com&#x2F;ikatyang&#x2F;emoji-cheat-sheet   实现了以下要求：  ​      运行环境">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zwx-zwx.github.io/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2jenkins%E5%AE%9E%E8%B7%B5%E6%8A%A5%E5%91%8A/images/jenkins.png">
+<meta property="og:image" content="http://zwx-zwx.github.io/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2jenkins%E5%AE%9E%E8%B7%B5%E6%8A%A5%E5%91%8A/se3.png">
+<meta property="article:published_time" content="2022-02-21T15:46:03.000Z">
+<meta property="article:modified_time" content="2022-02-21T17:23:34.112Z">
+<meta property="article:author" content="zwx">
+<meta property="article:tag" content="Jenkins">
+<meta property="article:tag" content="Docker">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zwx-zwx.github.io/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2jenkins%E5%AE%9E%E8%B7%B5%E6%8A%A5%E5%91%8A/images/jenkins.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://zwx-zwx.github.io/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2jenkins%E5%AE%9E%E8%B7%B5%E6%8A%A5%E5%91%8A/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="zwx-blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css">
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body class="main-center theme-blue" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/zwx-zwx" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">zwx</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Undergraduate, software engineering</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Nanjing, Jiangsu, CHN</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/zwx-zwx" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>你好哇!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%AD%E8%AE%B0-%E7%94%B5%E5%BD%B1/">札记 - 电影</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%89%A2%E9%AA%9A/">牢骚</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E6%83%B3/">生活随想</a><span class="category-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jenkins/" rel="tag">Jenkins</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%9D%E5%AF%86/" rel="tag">保密</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Docker/" style="font-size: 13px;">Docker</a> <a href="/tags/Jenkins/" style="font-size: 13px;">Jenkins</a> <a href="/tags/%E4%BF%9D%E5%AF%86/" style="font-size: 14px;">保密</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
+              </p>
+              <p class="item-title">
+                <a href="/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2jenkins%E5%AE%9E%E8%B7%B5%E6%8A%A5%E5%91%8A/" class="title">SEIII作业1--云服务器部署jenkins</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-02-21T15:46:03.000Z" itemprop="datePublished">2022-02-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E6%83%B3/">生活随想</a>
+              </p>
+              <p class="item-title">
+                <a href="/%E7%94%9F%E6%B4%BB%E5%9C%A8%E5%90%91%E6%88%91%E9%9D%A0%E6%8B%A2/" class="title">生活在向我靠拢</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-09-20T14:35:26.000Z" itemprop="datePublished">2021-09-20</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E6%83%B3/">生活随想</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021-09-11/" class="title">2021/09/11</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-09-13T14:35:26.000Z" itemprop="datePublished">2021-09-13</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E7%89%A2%E9%AA%9A/">牢骚</a>
+              </p>
+              <p class="item-title">
+                <a href="/%E5%BF%83%E7%83%A6%E6%84%8F%E4%B9%B1%E5%B0%8F%E8%AE%B0/" class="title">在发牢骚</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-08-10T08:53:36.000Z" itemprop="datePublished">2021-08-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%9C%AD%E8%AE%B0-%E7%94%B5%E5%BD%B1/">札记 - 电影</a>
+              </p>
+              <p class="item-title">
+                <a href="/%E3%80%8C%E8%8A%B1%E6%9D%9F%E8%88%AC%E7%9A%84%E6%81%8B%E7%88%B1%E3%80%8D%E8%A7%82%E5%90%8E%E6%84%9F/" class="title">「花束般的恋爱」观后感</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-08-05T07:58:13.000Z" itemprop="datePublished">2021-08-05</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-云服务器部署jenkins实践报告" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SEIII作业1--云服务器部署jenkins
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2jenkins%E5%AE%9E%E8%B7%B5%E6%8A%A5%E5%91%8A/" class="article-date">
+	  <time datetime="2022-02-21T15:46:03.000Z" itemprop="datePublished">2022-02-21</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/Docker/" rel="tag">Docker</a>, <a class="article-tag-link-link" href="/tags/Jenkins/" rel="tag">Jenkins</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2jenkins%E5%AE%9E%E8%B7%B5%E6%8A%A5%E5%91%8A/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 964(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p><img src="images/jenkins.png"></p>
+<h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><blockquote>
+<p>记录内容：近日，在云服务器上部署jenkins并进行git项目的自动化构建与部署</p>
+<p>官方文档：<a target="_blank" rel="noopener" href="https://www.jenkins.io/zh/doc/pipeline/tour/getting-started/">https://www.jenkins.io/zh/doc/pipeline/tour/getting-started/</a></p>
+<p>emoji in markdown : <a target="_blank" rel="noopener" href="https://github.com/ikatyang/emoji-cheat-sheet">https://github.com/ikatyang/emoji-cheat-sheet</a></p>
+</blockquote>
+<ul>
+<li>实现了以下要求：</li>
+</ul>
+<p>​    <img src="se3.png"></p>
+<ul>
+<li>运行环境：CentOS7</li>
+</ul>
+<p>[TOC]</p>
+<h1 id="Jenkins相关"><a href="#Jenkins相关" class="headerlink" title="Jenkins相关"></a>Jenkins相关</h1><h2 id="安装jenkins"><a href="#安装jenkins" class="headerlink" title="安装jenkins"></a>安装jenkins</h2><ul>
+<li>有两种方式：<ul>
+<li><a target="_blank" rel="noopener" href="https://www.jenkins.io/zh/doc/tutorials/build-a-multibranch-pipeline-project/#%E5%9C%A8-docker%E4%B8%AD%E8%BF%90%E8%A1%8Cjenkins">通过Docker安装</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/sanduzxcvbnm/p/11341622.html">本地安装</a></li>
+</ul>
+</li>
+<li>安装后，setup-wizzard很方便，跟着官方文档走即可</li>
+<li>Docker更方便，但网络进行代理时有些问题，故选择本地</li>
+<li>遇到问题：<ul>
+<li>部分设置<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/44711696/jenkins-403-no-valid-crumb-was-included-in-the-request">出现403错误</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="安装easyconnect设置网络代理"><a href="#安装easyconnect设置网络代理" class="headerlink" title="安装easyconnect设置网络代理"></a>安装easyconnect设置网络代理</h2><ul>
+<li><p>使用<a target="_blank" rel="noopener" href="https://github.com/Hagb/docker-easyconnect">docker-easyconnect镜像</a>，:sob:很救命</p>
+</li>
+<li><p>问题：</p>
+<ul>
+<li>学校的gitlab使用是校内网，需要连接vpn才可以访问，网络代理方面的问题，耗费了我相当大的时间</li>
+</ul>
+</li>
+<li><p>```bash<br>docker run –name ec –device /dev/net/tun –cap-add NET_ADMIN -ti -p 127.0.0.1:1080:1080 -p 127.0.0.1:8888:8888 -e EC_VER=7.6.7 hagb/docker-easyconnect:cli</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- jenkins[配置网络代理](https://segmentfault.com/a/1190000038987132)：manage jenkins -&gt; manage plugin -&gt; advanced</span><br><span class="line"></span><br><span class="line">  - 127.0.0.1:8888</span><br><span class="line"></span><br><span class="line">- 选择docker镜像的原因：</span><br><span class="line"></span><br><span class="line">  - 如果将ec安装在本地服务器，打开vpn后，我将无法由外网访问到我的服务器</span><br><span class="line">  - docker下ec可以为服务器提供代理服务访问到内网gitlab，同时我能由本地远程连接到服务器</span><br><span class="line"></span><br><span class="line">## [配置webhook](https://www.cnblogs.com/testopsfeng/p/15139538.html)</span><br><span class="line"></span><br><span class="line">- 使用插件Generic Webhook Trigger</span><br><span class="line"></span><br><span class="line">- Jenkinsfile中添加如下代码</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>triggers {</p>
+<pre><code>GenericTrigger (
+        // 构建时的标题
+        causeString: &#39;Triggered by $ref&#39;,
+        // 获取POST参数中的变量，key指的是变量名，通过$ref来访问对应的值，value指的是JSON匹配值（参考Jmeter的JSON提取器）
+        // ref指的是推送的分支，格式如：refs/heads/master
+        genericVariables: [[key: &#39;ref&#39;, value: &#39;$.ref&#39;]],
+        // 打印获取的变量的key-value，此处会打印如：ref=refs/heads/master
+        printContributedVariables: true,
+        // 打印POST传递的参数
+        printPostContent: true,
+        // regexpFilterExpression与regexpFilterExpression成对使用
+        // 当两者相等时，会触发对应分支的构建
+        regexpFilterExpression: &#39;^refs/heads/(master|production)$&#39;,
+        regexpFilterText: &#39;$ref&#39;,
+        // 与webhook中配置的token参数值一致
+        token: &#39;mytoken&#39;
+)
+</code></pre>
+<p>}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - 注意：</span><br><span class="line">    - token可以是任意值，只用于trigger和gitlab进行验证，构建正确的项目</span><br><span class="line">    - trigger可用于自动化构建develop分支而不构建master分支</span><br><span class="line"></span><br><span class="line">- 在gitlab/github/gitee项目中的webhook选项中，添加url，并设置push event</span><br><span class="line"></span><br><span class="line">- 小插曲:clown_face: :设置时，遇到问题![](images/hook-fail.png)</span><br><span class="line"></span><br><span class="line">  - 经询问，是gitlab服务器没有开启外网访问许可</span><br><span class="line">  - 幸亏问了助教:sob:</span><br><span class="line"></span><br><span class="line">## 用jacoco插件生成覆盖率报告</span><br><span class="line"></span><br><span class="line">- 参考 [单元测试以及代码覆盖率——Jenkins集成SonarQube、JaCoCo、Junit使用问题汇总](https://ningyu1.github.io/site/post/77-jenkins-sonarqube-jacoco-junit/)</span><br><span class="line"></span><br><span class="line">- jenkins安装jacoco插件</span><br><span class="line"></span><br><span class="line">- 在项目中pom.xml文件添加jacoco插件,记得添加到对应位置</span><br><span class="line"></span><br><span class="line">  ```xml</span><br><span class="line">  &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.jacoco&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;jacoco-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;0.8.1&lt;/version&gt;</span><br><span class="line">  &lt;/dependency&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;plugin&gt;</span><br><span class="line">      &lt;groupId&gt;org.jacoco&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;jacoco-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;0.8.1&lt;/version&gt;</span><br><span class="line">      &lt;configuration&gt;</span><br><span class="line">          &lt;skip&gt;false&lt;/skip&gt;</span><br><span class="line">      &lt;/configuration&gt;</span><br><span class="line">      &lt;executions&gt;</span><br><span class="line">          &lt;execution&gt;</span><br><span class="line">              &lt;goals&gt;</span><br><span class="line">                  &lt;goal&gt;prepare-agent&lt;/goal&gt;</span><br><span class="line">              &lt;/goals&gt;</span><br><span class="line">          &lt;/execution&gt;</span><br><span class="line">          &lt;execution&gt;</span><br><span class="line">              &lt;configuration&gt;</span><br><span class="line">                  &lt;outputDirectory&gt;$&#123;basedir&#125;/target/coverage-reports&lt;/outputDirectory&gt;</span><br><span class="line">              &lt;/configuration&gt;</span><br><span class="line">              &lt;id&gt;report&lt;/id&gt;</span><br><span class="line">              &lt;phase&gt;test&lt;/phase&gt;</span><br><span class="line">              &lt;goals&gt;</span><br><span class="line">                  &lt;goal&gt;report&lt;/goal&gt;</span><br><span class="line">              &lt;/goals&gt;</span><br><span class="line">          &lt;/execution&gt;</span><br><span class="line">      &lt;/executions&gt;</span><br><span class="line">  &lt;/plugin&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>在jenkinsfile/pipeline脚本中，添加如下step:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">jacoco( </span><br><span class="line">      execPattern: &#x27;target/*.exec&#x27;,</span><br><span class="line">      classPattern: &#x27;target/classes&#x27;,</span><br><span class="line">      sourcePattern: &#x27;src/main/java&#x27;,</span><br><span class="line">      exclusionPattern: &#x27;src/test*&#x27;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>参考<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/41893846/jacoco-coverage-in-jenkins-pipeline">Jacoco coverage in Jenkins Pipeline–StackOverflow</a> (stackoverflow yyds:sob:    </li>
+</ul>
+</li>
+</ul>
+<h2 id="pipeline"><a href="#pipeline" class="headerlink" title="pipeline"></a>pipeline</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.jenkins.io/zh/doc/book/pipeline/">官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://gist.github.com/bargenson/a3c3dbe3ce664bc4638780b351c91712">Jenkinsfile example</a></li>
+<li>脚本执行时permission denied ： <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/43372035/permission-denied-when-executing-the-jenkins-sh-pipeline-step">permission denied when executing the jenkins sh pipeline step-Stack Overflow</a></li>
+<li>根据样例模仿着写，并不困难 :sun_behind_small_cloud:</li>
+</ul>
+<h1 id="项目运行环境"><a href="#项目运行环境" class="headerlink" title="项目运行环境"></a>项目运行环境</h1><h2 id="前端nodejs"><a href="#前端nodejs" class="headerlink" title="前端nodejs"></a>前端nodejs</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.myfreax.com/how-to-install-node-js-on-centos-7/">安装教程</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://rpm.nodesource.com/setup_16.x | sudo bash -</span><br><span class="line">sudo yum install nodejs</span><br><span class="line"></span><br><span class="line">npm --version</span><br><span class="line">node --version</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="后端springboot"><a href="#后端springboot" class="headerlink" title="后端springboot"></a>后端springboot</h2><ul>
+<li><a href="">安装maven</a></li>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000018442644">安装mysql</a></li>
+</ul>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://zwx-zwx.github.io/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2jenkins%E5%AE%9E%E8%B7%B5%E6%8A%A5%E5%91%8A/" title="SEIII作业1--云服务器部署jenkins" target="_blank" rel="external">http://zwx-zwx.github.io/云服务器部署jenkins实践报告/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/zwx-zwx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/zwx-zwx" target="_blank"><span class="text-dark">zwx</span><small class="ml-1x">Undergraduate, software engineering</small></a></h3>
+        <div>人很菜，但在学</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/%E7%94%9F%E6%B4%BB%E5%9C%A8%E5%90%91%E6%88%91%E9%9D%A0%E6%8B%A2/" title="生活在向我靠拢"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/zwx-zwx" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2022 zwx
+        
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+<script src="//cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js"></script>
+<script>
+var gitment = new Gitment({
+  // id默认为当前页面url，如果url后带参数或锚点，gitment要重新初始化
+  // https://github.com/imsun/gitment/issues/55
+  // 解决方案：id:window.location.pathname,或者将id设置为当前页面标题
+  id: 'SEIII作业1--云服务器部署jenkins', 
+  owner: 'zwx-zwx', // 可以是你的GitHub用户名，也可以是github id
+  repo: 'zwx-zwx.github.io',
+  oauth: {
+    client_id: 'c58b4a730214d98665d1',
+    client_secret: 'd8e0822dc37dc394ffceb159e21b81c32d60b0fc',
+  }
+})
+gitment.render('comments')
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

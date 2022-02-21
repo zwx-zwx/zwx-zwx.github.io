@@ -6,7 +6,7 @@
   <link href="http://zwx-zwx.github.io/atom.xml" rel="self"/>
   
   <link href="http://zwx-zwx.github.io/"/>
-  <updated>2022-02-16T12:51:04.014Z</updated>
+  <updated>2022-02-21T17:23:34.112Z</updated>
   <id>http://zwx-zwx.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SEIII作业1--云服务器部署jenkins</title>
+    <link href="http://zwx-zwx.github.io/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2jenkins%E5%AE%9E%E8%B7%B5%E6%8A%A5%E5%91%8A/"/>
+    <id>http://zwx-zwx.github.io/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2jenkins%E5%AE%9E%E8%B7%B5%E6%8A%A5%E5%91%8A/</id>
+    <published>2022-02-21T15:46:03.000Z</published>
+    <updated>2022-02-21T17:23:34.112Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;images/jenkins.png&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;概要&quot;&gt;&lt;a href=&quot;#概要&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="学习" scheme="http://zwx-zwx.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="Jenkins" scheme="http://zwx-zwx.github.io/tags/Jenkins/"/>
+    
+    <category term="Docker" scheme="http://zwx-zwx.github.io/tags/Docker/"/>
+    
+  </entry>
   
   <entry>
     <title>生活在向我靠拢</title>
