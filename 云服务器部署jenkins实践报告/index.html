@@ -25,15 +25,16 @@
 <meta property="og:site_name" content="zwx-blog">
 <meta property="og:description" content="概要 记录内容：近日，在云服务器上部署jenkins并进行git项目的自动化构建与部署 官方文档：https:&#x2F;&#x2F;www.jenkins.io&#x2F;zh&#x2F;doc&#x2F;pipeline&#x2F;tour&#x2F;getting-started&#x2F; emoji in markdown : https:&#x2F;&#x2F;github.com&#x2F;ikatyang&#x2F;emoji-cheat-sheet   实现了以下要求：  ​      运行环境">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://zwx-zwx.github.io/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2jenkins%E5%AE%9E%E8%B7%B5%E6%8A%A5%E5%91%8A/images/jenkins.png">
-<meta property="og:image" content="http://zwx-zwx.github.io/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2jenkins%E5%AE%9E%E8%B7%B5%E6%8A%A5%E5%91%8A/se3.png">
+<meta property="og:image" content="http://zwx-zwx.github.io/images/jenkins.png">
+<meta property="og:image" content="http://zwx-zwx.github.io/images/se3.png">
+<meta property="og:image" content="http://zwx-zwx.github.io/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2jenkins%E5%AE%9E%E8%B7%B5%E6%8A%A5%E5%91%8A/images/hook-fail.png">
 <meta property="article:published_time" content="2022-02-21T15:46:03.000Z">
-<meta property="article:modified_time" content="2022-02-21T17:23:34.112Z">
+<meta property="article:modified_time" content="2022-02-21T17:28:08.503Z">
 <meta property="article:author" content="zwx">
 <meta property="article:tag" content="Jenkins">
 <meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://zwx-zwx.github.io/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2jenkins%E5%AE%9E%E8%B7%B5%E6%8A%A5%E5%91%8A/images/jenkins.png">
+<meta name="twitter:image" content="http://zwx-zwx.github.io/images/jenkins.png">
   <!-- Canonical links -->
   <link rel="canonical" href="http://zwx-zwx.github.io/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2jenkins%E5%AE%9E%E8%B7%B5%E6%8A%A5%E5%91%8A/index.html">
   
@@ -382,7 +383,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2jenkins%E5%AE%9E%E8%B7%B5%E6%8A%A5%E5%91%8A/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 964(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 931(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
@@ -392,7 +393,7 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p><img src="images/jenkins.png"></p>
+        <p><img src="/images/jenkins.png"></p>
 <h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><blockquote>
 <p>记录内容：近日，在云服务器上部署jenkins并进行git项目的自动化构建与部署</p>
 <p>官方文档：<a target="_blank" rel="noopener" href="https://www.jenkins.io/zh/doc/pipeline/tour/getting-started/">https://www.jenkins.io/zh/doc/pipeline/tour/getting-started/</a></p>
@@ -401,11 +402,10 @@
 <ul>
 <li>实现了以下要求：</li>
 </ul>
-<p>​    <img src="se3.png"></p>
+<p>​    <img src="/images/se3.png"></p>
 <ul>
 <li>运行环境：CentOS7</li>
 </ul>
-<p>[TOC]</p>
 <h1 id="Jenkins相关"><a href="#Jenkins相关" class="headerlink" title="Jenkins相关"></a>Jenkins相关</h1><h2 id="安装jenkins"><a href="#安装jenkins" class="headerlink" title="安装jenkins"></a>安装jenkins</h2><ul>
 <li>有两种方式：<ul>
 <li><a target="_blank" rel="noopener" href="https://www.jenkins.io/zh/doc/tutorials/build-a-multibranch-pipeline-project/#%E5%9C%A8-docker%E4%B8%AD%E8%BF%90%E8%A1%8Cjenkins">通过Docker安装</a></li>
@@ -420,41 +420,64 @@
 </li>
 </ul>
 <h2 id="安装easyconnect设置网络代理"><a href="#安装easyconnect设置网络代理" class="headerlink" title="安装easyconnect设置网络代理"></a>安装easyconnect设置网络代理</h2><ul>
-<li><p>使用<a target="_blank" rel="noopener" href="https://github.com/Hagb/docker-easyconnect">docker-easyconnect镜像</a>，:sob:很救命</p>
+<li><p>使用<a target="_blank" rel="noopener" href="https://github.com/Hagb/docker-easyconnect">docker-easyconnect镜像</a>，(很救命</p>
 </li>
 <li><p>问题：</p>
 <ul>
 <li>学校的gitlab使用是校内网，需要连接vpn才可以访问，网络代理方面的问题，耗费了我相当大的时间</li>
 </ul>
 </li>
-<li><p>```bash<br>docker run –name ec –device /dev/net/tun –cap-add NET_ADMIN -ti -p 127.0.0.1:1080:1080 -p 127.0.0.1:8888:8888 -e EC_VER=7.6.7 hagb/docker-easyconnect:cli</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- jenkins[配置网络代理](https://segmentfault.com/a/1190000038987132)：manage jenkins -&gt; manage plugin -&gt; advanced</span><br><span class="line"></span><br><span class="line">  - 127.0.0.1:8888</span><br><span class="line"></span><br><span class="line">- 选择docker镜像的原因：</span><br><span class="line"></span><br><span class="line">  - 如果将ec安装在本地服务器，打开vpn后，我将无法由外网访问到我的服务器</span><br><span class="line">  - docker下ec可以为服务器提供代理服务访问到内网gitlab，同时我能由本地远程连接到服务器</span><br><span class="line"></span><br><span class="line">## [配置webhook](https://www.cnblogs.com/testopsfeng/p/15139538.html)</span><br><span class="line"></span><br><span class="line">- 使用插件Generic Webhook Trigger</span><br><span class="line"></span><br><span class="line">- Jenkinsfile中添加如下代码</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>triggers {</p>
-<pre><code>GenericTrigger (
-        // 构建时的标题
-        causeString: &#39;Triggered by $ref&#39;,
-        // 获取POST参数中的变量，key指的是变量名，通过$ref来访问对应的值，value指的是JSON匹配值（参考Jmeter的JSON提取器）
-        // ref指的是推送的分支，格式如：refs/heads/master
-        genericVariables: [[key: &#39;ref&#39;, value: &#39;$.ref&#39;]],
-        // 打印获取的变量的key-value，此处会打印如：ref=refs/heads/master
-        printContributedVariables: true,
-        // 打印POST传递的参数
-        printPostContent: true,
-        // regexpFilterExpression与regexpFilterExpression成对使用
-        // 当两者相等时，会触发对应分支的构建
-        regexpFilterExpression: &#39;^refs/heads/(master|production)$&#39;,
-        regexpFilterText: &#39;$ref&#39;,
-        // 与webhook中配置的token参数值一致
-        token: &#39;mytoken&#39;
-)
-</code></pre>
-<p>}</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - 注意：</span><br><span class="line">    - token可以是任意值，只用于trigger和gitlab进行验证，构建正确的项目</span><br><span class="line">    - trigger可用于自动化构建develop分支而不构建master分支</span><br><span class="line"></span><br><span class="line">- 在gitlab/github/gitee项目中的webhook选项中，添加url，并设置push event</span><br><span class="line"></span><br><span class="line">- 小插曲:clown_face: :设置时，遇到问题![](images/hook-fail.png)</span><br><span class="line"></span><br><span class="line">  - 经询问，是gitlab服务器没有开启外网访问许可</span><br><span class="line">  - 幸亏问了助教:sob:</span><br><span class="line"></span><br><span class="line">## 用jacoco插件生成覆盖率报告</span><br><span class="line"></span><br><span class="line">- 参考 [单元测试以及代码覆盖率——Jenkins集成SonarQube、JaCoCo、Junit使用问题汇总](https://ningyu1.github.io/site/post/77-jenkins-sonarqube-jacoco-junit/)</span><br><span class="line"></span><br><span class="line">- jenkins安装jacoco插件</span><br><span class="line"></span><br><span class="line">- 在项目中pom.xml文件添加jacoco插件,记得添加到对应位置</span><br><span class="line"></span><br><span class="line">  ```xml</span><br><span class="line">  &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.jacoco&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;jacoco-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;0.8.1&lt;/version&gt;</span><br><span class="line">  &lt;/dependency&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;plugin&gt;</span><br><span class="line">      &lt;groupId&gt;org.jacoco&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;jacoco-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;0.8.1&lt;/version&gt;</span><br><span class="line">      &lt;configuration&gt;</span><br><span class="line">          &lt;skip&gt;false&lt;/skip&gt;</span><br><span class="line">      &lt;/configuration&gt;</span><br><span class="line">      &lt;executions&gt;</span><br><span class="line">          &lt;execution&gt;</span><br><span class="line">              &lt;goals&gt;</span><br><span class="line">                  &lt;goal&gt;prepare-agent&lt;/goal&gt;</span><br><span class="line">              &lt;/goals&gt;</span><br><span class="line">          &lt;/execution&gt;</span><br><span class="line">          &lt;execution&gt;</span><br><span class="line">              &lt;configuration&gt;</span><br><span class="line">                  &lt;outputDirectory&gt;$&#123;basedir&#125;/target/coverage-reports&lt;/outputDirectory&gt;</span><br><span class="line">              &lt;/configuration&gt;</span><br><span class="line">              &lt;id&gt;report&lt;/id&gt;</span><br><span class="line">              &lt;phase&gt;test&lt;/phase&gt;</span><br><span class="line">              &lt;goals&gt;</span><br><span class="line">                  &lt;goal&gt;report&lt;/goal&gt;</span><br><span class="line">              &lt;/goals&gt;</span><br><span class="line">          &lt;/execution&gt;</span><br><span class="line">      &lt;/executions&gt;</span><br><span class="line">  &lt;/plugin&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name ec --device /dev/net/tun --cap-add NET_ADMIN -ti -p 127.0.0.1:1080:1080 -p 127.0.0.1:8888:8888 -e EC_VER=7.6.7 hagb/docker-easyconnect:cli</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>jenkins<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000038987132">配置网络代理</a>：manage jenkins -&gt; manage plugin -&gt; advanced</p>
+<ul>
+<li>127.0.0.1:8888</li>
+</ul>
+</li>
+<li><p>选择docker镜像的原因：</p>
+<ul>
+<li>如果将ec安装在本地服务器，打开vpn后，我将无法由外网访问到我的服务器</li>
+<li>docker下ec可以为服务器提供代理服务访问到内网gitlab，同时我能由本地远程连接到服务器</li>
+</ul>
+</li>
+</ul>
+<h2 id="配置webhook"><a href="#配置webhook" class="headerlink" title="配置webhook"></a><a target="_blank" rel="noopener" href="https://www.cnblogs.com/testopsfeng/p/15139538.html">配置webhook</a></h2><ul>
+<li><p>使用插件Generic Webhook Trigger</p>
+</li>
+<li><p>Jenkinsfile中添加如下代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">triggers &#123;</span><br><span class="line">    GenericTrigger (</span><br><span class="line">            // 构建时的标题</span><br><span class="line">            causeString: &#x27;Triggered by $ref&#x27;,</span><br><span class="line">            // 获取POST参数中的变量，key指的是变量名，通过$ref来访问对应的值，value指的是JSON匹配值（参考Jmeter的JSON提取器）</span><br><span class="line">            // ref指的是推送的分支，格式如：refs/heads/master</span><br><span class="line">            genericVariables: [[key: &#x27;ref&#x27;, value: &#x27;$.ref&#x27;]],</span><br><span class="line">            // 打印获取的变量的key-value，此处会打印如：ref=refs/heads/master</span><br><span class="line">            printContributedVariables: true,</span><br><span class="line">            // 打印POST传递的参数</span><br><span class="line">            printPostContent: true,</span><br><span class="line">            // regexpFilterExpression与regexpFilterExpression成对使用</span><br><span class="line">            // 当两者相等时，会触发对应分支的构建</span><br><span class="line">            regexpFilterExpression: &#x27;^refs/heads/(master|production)$&#x27;,</span><br><span class="line">            regexpFilterText: &#x27;$ref&#x27;,</span><br><span class="line">            // 与webhook中配置的token参数值一致</span><br><span class="line">            token: &#x27;mytoken&#x27;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>注意：<ul>
+<li>token可以是任意值，只用于trigger和gitlab进行验证，构建正确的项目</li>
+<li>trigger可用于自动化构建develop分支而不构建master分支</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>在gitlab/github/gitee项目中的webhook选项中，添加url，并设置push event</p>
+</li>
+<li><p>小插曲:clown_face: :设置时，遇到问题<img src="images/hook-fail.png"></p>
+<ul>
+<li>经询问，是gitlab服务器没有开启外网访问许可</li>
+<li>（幸亏问了助教</li>
+</ul>
+</li>
+</ul>
+<h2 id="用jacoco插件生成覆盖率报告"><a href="#用jacoco插件生成覆盖率报告" class="headerlink" title="用jacoco插件生成覆盖率报告"></a>用jacoco插件生成覆盖率报告</h2><ul>
+<li><p>参考 <a target="_blank" rel="noopener" href="https://ningyu1.github.io/site/post/77-jenkins-sonarqube-jacoco-junit/">单元测试以及代码覆盖率——Jenkins集成SonarQube、JaCoCo、Junit使用问题汇总</a></p>
+</li>
+<li><p>jenkins安装jacoco插件</p>
+</li>
+<li><p>在项目中pom.xml文件添加jacoco插件,记得添加到对应位置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.jacoco<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jacoco-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.8.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.jacoco<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jacoco-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.8.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">skip</span>&gt;</span>false<span class="tag">&lt;/<span class="name">skip</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goal</span>&gt;</span>prepare-agent<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">outputDirectory</span>&gt;</span>$&#123;basedir&#125;/target/coverage-reports<span class="tag">&lt;/<span class="name">outputDirectory</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span>&gt;</span>report<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">phase</span>&gt;</span>test<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goal</span>&gt;</span>report<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
 <li><p>在jenkinsfile/pipeline脚本中，添加如下step:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">jacoco( </span><br><span class="line">      execPattern: &#x27;target/*.exec&#x27;,</span><br><span class="line">      classPattern: &#x27;target/classes&#x27;,</span><br><span class="line">      sourcePattern: &#x27;src/main/java&#x27;,</span><br><span class="line">      exclusionPattern: &#x27;src/test*&#x27;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>参考<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/41893846/jacoco-coverage-in-jenkins-pipeline">Jacoco coverage in Jenkins Pipeline–StackOverflow</a> (stackoverflow yyds:sob:    </li>
+<li>参考<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/41893846/jacoco-coverage-in-jenkins-pipeline">Jacoco coverage in Jenkins Pipeline–StackOverflow</a> (stackoverflow yyds</li>
 </ul>
 </li>
 </ul>
@@ -462,7 +485,7 @@
 <li><a target="_blank" rel="noopener" href="https://www.jenkins.io/zh/doc/book/pipeline/">官方文档</a></li>
 <li><a target="_blank" rel="noopener" href="https://gist.github.com/bargenson/a3c3dbe3ce664bc4638780b351c91712">Jenkinsfile example</a></li>
 <li>脚本执行时permission denied ： <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/43372035/permission-denied-when-executing-the-jenkins-sh-pipeline-step">permission denied when executing the jenkins sh pipeline step-Stack Overflow</a></li>
-<li>根据样例模仿着写，并不困难 :sun_behind_small_cloud:</li>
+<li>根据样例模仿着写，并不困难 </li>
 </ul>
 <h1 id="项目运行环境"><a href="#项目运行环境" class="headerlink" title="项目运行环境"></a>项目运行环境</h1><h2 id="前端nodejs"><a href="#前端nodejs" class="headerlink" title="前端nodejs"></a>前端nodejs</h2><ul>
 <li><p><a target="_blank" rel="noopener" href="https://www.myfreax.com/how-to-install-node-js-on-centos-7/">安装教程</a></p>
