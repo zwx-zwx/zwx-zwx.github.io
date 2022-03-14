@@ -17,22 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>about | zwx-blog</title>
-  <meta name="description" content="test">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://zwx-zwx.github.io/about/index.html">
+  <title>几道SQL OJ | zwx-blog</title>
+  <meta name="description" content="Leetcode185. 部门工资前三高的所有员工 Table  Employee1234567891011121314151617181920212223+--------------+---------+| Column Name  | Type    |+--------------+---------+| id           | int     || name         | v">
+<meta property="og:type" content="article">
+<meta property="og:title" content="几道SQL OJ">
+<meta property="og:url" content="http://zwx-zwx.github.io/2022/02/%E5%87%A0%E9%81%93SQL%E9%A2%98%E7%9B%AE/index.html">
 <meta property="og:site_name" content="zwx-blog">
-<meta property="og:description" content="test">
+<meta property="og:description" content="Leetcode185. 部门工资前三高的所有员工 Table  Employee1234567891011121314151617181920212223+--------------+---------+| Column Name  | Type    |+--------------+---------+| id           | int     || name         | v">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://zwx-zwx.github.io/images/less.jpg">
-<meta property="article:published_time" content="2022-02-16T07:42:16.000Z">
-<meta property="article:modified_time" content="2022-02-16T07:44:41.192Z">
+<meta property="article:published_time" content="2022-02-21T15:46:03.000Z">
+<meta property="article:modified_time" content="2022-03-14T14:24:08.095Z">
 <meta property="article:author" content="siondzheng@gmail.com">
+<meta property="article:tag" content="SQL">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://zwx-zwx.github.io/images/less.jpg">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://zwx-zwx.github.io/about/index.html">
+  <link rel="canonical" href="http://zwx-zwx.github.io/2022/02/%E5%87%A0%E9%81%93SQL%E9%A2%98%E7%9B%AE/index.html">
   
     <link rel="alternate" href="/atom.xml" title="zwx-blog" type="application/atom+xml">
   
@@ -333,16 +332,25 @@
 
   
   
+  <aside class="sidebar sidebar-toc collapse   in  " id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Leetcode185-%E9%83%A8%E9%97%A8%E5%B7%A5%E8%B5%84%E5%89%8D%E4%B8%89%E9%AB%98%E7%9A%84%E6%89%80%E6%9C%89%E5%91%98%E5%B7%A5"><span class="toc-number">1.</span> <span class="toc-text">Leetcode185. 部门工资前三高的所有员工</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%87%8D%E7%82%B9"><span class="toc-number">1.1.</span> <span class="toc-text">重点</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LeetCode1715-%E8%8B%B9%E6%9E%9C%E5%92%8C%E6%A9%98%E5%AD%90%E7%9A%84%E4%B8%AA%E6%95%B0%EF%BC%88SQL%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">LeetCode1715.苹果和橘子的个数（SQL）</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
 <main class="main" role="main">
   <div class="content">
-  <article id="page-" class="article article-type-page" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-几道SQL题目" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      about
+      几道SQL OJ
     </h1>
   
 
@@ -350,12 +358,22 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/about/index.html" class="article-date">
-	  <time datetime="2022-02-16T07:42:16.000Z" itemprop="datePublished">2022-02-16</time>
+	<a href="/2022/02/%E5%87%A0%E9%81%93SQL%E9%A2%98%E7%9B%AE/" class="article-date">
+	  <time datetime="2022-02-21T15:46:03.000Z" itemprop="datePublished">2022-02-21</time>
 	</a>
 </span>
         
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
+  </span>
+
         
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/SQL/" rel="tag">SQL</a>
+  </span>
+
 
         
 	<span class="article-read hidden-xs">
@@ -366,10 +384,10 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/about/index.html#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/02/%E5%87%A0%E9%81%93SQL%E9%A2%98%E7%9B%AE/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 267(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -379,8 +397,39 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>test</p>
-<p><img src="/images/less.jpg"></p>
+        <h4 id="Leetcode185-部门工资前三高的所有员工"><a href="#Leetcode185-部门工资前三高的所有员工" class="headerlink" title="Leetcode185. 部门工资前三高的所有员工"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/department-top-three-salaries/">Leetcode185. 部门工资前三高的所有员工</a></h4><ul>
+<li>Table</li>
+</ul>
+<figure class="highlight plaintext"><figcaption><span>Employee</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">+--------------+---------+</span><br><span class="line">| Column Name  | Type    |</span><br><span class="line">+--------------+---------+</span><br><span class="line">| id           | int     |</span><br><span class="line">| name         | varchar |</span><br><span class="line">| salary       | int     |</span><br><span class="line">| departmentId | int     |</span><br><span class="line">+--------------+---------+</span><br><span class="line">Id是该表的主键列。</span><br><span class="line">departmentId是Department表中ID的外键。</span><br><span class="line">该表的每一行都表示员工的ID、姓名和工资。它还包含了他们部门的ID。</span><br><span class="line"></span><br><span class="line">表: Department</span><br><span class="line"></span><br><span class="line">+-------------+---------+</span><br><span class="line">| Column Name | Type    |</span><br><span class="line">+-------------+---------+</span><br><span class="line">| id          | int     |</span><br><span class="line">| name        | varchar |</span><br><span class="line">+-------------+---------+</span><br><span class="line">Id是该表的主键列。</span><br><span class="line">该表的每一行表示部门ID和部门名。</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Solution</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    d.Name <span class="keyword">AS</span> <span class="string">&#x27;Department&#x27;</span>, e1.Name <span class="keyword">AS</span> <span class="string">&#x27;Employee&#x27;</span>, e1.Salary</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Employee e1</span><br><span class="line">        <span class="keyword">JOIN</span></span><br><span class="line">    Department d <span class="keyword">ON</span> e1.DepartmentId <span class="operator">=</span> d.Id</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    <span class="number">3</span> <span class="operator">&gt;</span> (<span class="keyword">SELECT</span></span><br><span class="line">            <span class="built_in">COUNT</span>(<span class="keyword">DISTINCT</span> e2.Salary)</span><br><span class="line">        <span class="keyword">FROM</span></span><br><span class="line">            Employee e2</span><br><span class="line">        <span class="keyword">WHERE</span></span><br><span class="line">            e2.Salary <span class="operator">&gt;</span> e1.Salary</span><br><span class="line">                <span class="keyword">AND</span> e1.DepartmentId <span class="operator">=</span> e2.DepartmentId</span><br><span class="line">        )</span><br><span class="line">;</span><br></pre></td></tr></table></figure>
+
+<h5 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h5><ul>
+<li><p>```sql<br>3 &gt; (SELECT</p>
+<pre><code>        COUNT(DISTINCT e2.Salary)
+    FROM
+        Employee e2
+    WHERE
+        e2.Salary &gt; e1.Salary
+            AND e1.DepartmentId = e2.DepartmentId
+    )
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  这个筛选条件</span><br><span class="line"></span><br><span class="line">#### [LeetCode 1527 患某种疾病的患者](https://leetcode-cn.com/problems/patients-with-a-condition/)</span><br><span class="line"></span><br><span class="line">- Table: Patients</span><br><span class="line"></span><br><span class="line">```ruby</span><br><span class="line">+--------------+---------+</span><br><span class="line">| Column Name  | Type    |</span><br><span class="line">+--------------+---------+</span><br><span class="line">| patient_id   | int     |</span><br><span class="line">| patient_name | varchar |</span><br><span class="line">| conditions   | varchar |</span><br><span class="line">+--------------+---------+</span><br></pre></td></tr></table></figure></li>
+<li><p>Solution</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">from</span> Patients</span><br><span class="line"><span class="keyword">where</span> conditions <span class="keyword">like</span> &quot;%DIAB1%&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p>模糊查询：</p>
+<ul>
+<li>like</li>
+</ul>
+</li>
+</ul>
+<h4 id="LeetCode1715-苹果和橘子的个数（SQL）"><a href="#LeetCode1715-苹果和橘子的个数（SQL）" class="headerlink" title="LeetCode1715.苹果和橘子的个数（SQL）"></a><a target="_blank" rel="noopener" href="https://crycrycry.blog.csdn.net/article/details/115388901">LeetCode1715.苹果和橘子的个数（SQL）</a></h4><ul>
+<li><p>Solution</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">    ifnull(<span class="built_in">sum</span>(b.apple_count), <span class="number">0</span>) <span class="operator">+</span> ifnull(<span class="built_in">sum</span>(c.apple_count), <span class="number">0</span>) apple_count,</span><br><span class="line">    ifnull(<span class="built_in">sum</span>(b.orange_count), <span class="number">0</span>) <span class="operator">+</span> ifnull(<span class="built_in">sum</span>(c.orange_count), <span class="number">0</span>) orange_count</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    Boxes b</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> </span><br><span class="line">    Chests c</span><br><span class="line"><span class="keyword">on</span> </span><br><span class="line">    b.chest_id <span class="operator">=</span> c.chest_id</span><br><span class="line">;</span><br></pre></td></tr></table></figure></li>
+</ul>
 
       
     </div>
@@ -390,7 +439,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://zwx-zwx.github.io/about/index.html" title="about" target="_blank" rel="external">http://zwx-zwx.github.io/about/index.html</a>
+      <a href="http://zwx-zwx.github.io/2022/02/%E5%87%A0%E9%81%93SQL%E9%A2%98%E7%9B%AE/" title="几道SQL OJ" target="_blank" rel="external">http://zwx-zwx.github.io/2022/02/几道SQL题目/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -433,6 +482,28 @@
 
   <nav class="bar bar-footer clearfix" data-stick-bottom>
   <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2022/02/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2jenkins%E5%AE%9E%E8%B7%B5%E6%8A%A5%E5%91%8A/" title="SEIII作业1--云服务器部署jenkins"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2021/09/%E7%94%9F%E6%B4%BB-%E7%94%9F%E6%B4%BB%E5%9C%A8%E5%90%91%E6%88%91%E9%9D%A0%E6%8B%A2/" title="生活在向我靠拢"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn " data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">    <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
   
   
   
@@ -501,6 +572,12 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
 
    
     
@@ -510,7 +587,7 @@ var gitment = new Gitment({
   // id默认为当前页面url，如果url后带参数或锚点，gitment要重新初始化
   // https://github.com/imsun/gitment/issues/55
   // 解决方案：id:window.location.pathname,或者将id设置为当前页面标题
-  id: 'about', 
+  id: '几道SQL OJ', 
   owner: 'zwx-zwx', // 可以是你的GitHub用户名，也可以是github id
   repo: 'zwx-zwx.github.io',
   oauth: {

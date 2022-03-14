@@ -6,20 +6,43 @@
   <link href="http://zwx-zwx.github.io/atom.xml" rel="self"/>
   
   <link href="http://zwx-zwx.github.io/"/>
-  <updated>2022-02-21T17:40:15.246Z</updated>
+  <updated>2022-03-05T15:18:59.238Z</updated>
   <id>http://zwx-zwx.github.io/</id>
   
   <author>
-    <name>zwx</name>
+    <name>siondzheng@gmail.com</name>
     
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>我是哪里人</title>
+    <link href="http://zwx-zwx.github.io/2022/03/%E9%9A%8F%E6%83%B3-2022-03-05-%E6%88%91%E6%98%AF%E5%93%AA%E9%87%8C%E4%BA%BA/"/>
+    <id>http://zwx-zwx.github.io/2022/03/%E9%9A%8F%E6%83%B3-2022-03-05-%E6%88%91%E6%98%AF%E5%93%AA%E9%87%8C%E4%BA%BA/</id>
+    <published>2022-03-05T14:21:11.000Z</published>
+    <updated>2022-03-05T15:18:59.238Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;​   </summary>
+        
+      
+    
+    
+    
+    <category term="生活随想" scheme="http://zwx-zwx.github.io/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E6%83%B3/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>SEIII作业1--云服务器部署jenkins</title>
-    <link href="http://zwx-zwx.github.io/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2jenkins%E5%AE%9E%E8%B7%B5%E6%8A%A5%E5%91%8A/"/>
-    <id>http://zwx-zwx.github.io/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2jenkins%E5%AE%9E%E8%B7%B5%E6%8A%A5%E5%91%8A/</id>
+    <link href="http://zwx-zwx.github.io/2022/02/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2jenkins%E5%AE%9E%E8%B7%B5%E6%8A%A5%E5%91%8A/"/>
+    <id>http://zwx-zwx.github.io/2022/02/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2jenkins%E5%AE%9E%E8%B7%B5%E6%8A%A5%E5%91%8A/</id>
     <published>2022-02-21T15:46:03.000Z</published>
     <updated>2022-02-21T17:40:15.246Z</updated>
     
@@ -45,9 +68,34 @@
   </entry>
   
   <entry>
+    <title>几道SQL OJ</title>
+    <link href="http://zwx-zwx.github.io/2022/02/%E5%87%A0%E9%81%93SQL%E9%A2%98%E7%9B%AE/"/>
+    <id>http://zwx-zwx.github.io/2022/02/%E5%87%A0%E9%81%93SQL%E9%A2%98%E7%9B%AE/</id>
+    <published>2022-02-21T15:46:03.000Z</published>
+    <updated>2022-03-14T14:24:08.095Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;Leetcode185-部门工资前三高的所有员工&quot;&gt;&lt;a href=&quot;#Leetcode185-部门工资前三高的所有员工&quot; class=&quot;headerlink&quot; title=&quot;Leetcode185. 部门工资前三高的所有员工&quot;&gt;&lt;/a&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="学习" scheme="http://zwx-zwx.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="SQL" scheme="http://zwx-zwx.github.io/tags/SQL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>生活在向我靠拢</title>
-    <link href="http://zwx-zwx.github.io/%E7%94%9F%E6%B4%BB%E5%9C%A8%E5%90%91%E6%88%91%E9%9D%A0%E6%8B%A2/"/>
-    <id>http://zwx-zwx.github.io/%E7%94%9F%E6%B4%BB%E5%9C%A8%E5%90%91%E6%88%91%E9%9D%A0%E6%8B%A2/</id>
+    <link href="http://zwx-zwx.github.io/2021/09/%E7%94%9F%E6%B4%BB-%E7%94%9F%E6%B4%BB%E5%9C%A8%E5%90%91%E6%88%91%E9%9D%A0%E6%8B%A2/"/>
+    <id>http://zwx-zwx.github.io/2021/09/%E7%94%9F%E6%B4%BB-%E7%94%9F%E6%B4%BB%E5%9C%A8%E5%90%91%E6%88%91%E9%9D%A0%E6%8B%A2/</id>
     <published>2021-09-20T14:35:26.000Z</published>
     <updated>2022-02-16T12:51:04.014Z</updated>
     
@@ -72,8 +120,8 @@
   
   <entry>
     <title>2021/09/11</title>
-    <link href="http://zwx-zwx.github.io/2021-09-11/"/>
-    <id>http://zwx-zwx.github.io/2021-09-11/</id>
+    <link href="http://zwx-zwx.github.io/2021/09/%E7%94%9F%E6%B4%BB-2021-09-11/"/>
+    <id>http://zwx-zwx.github.io/2021/09/%E7%94%9F%E6%B4%BB-2021-09-11/</id>
     <published>2021-09-13T14:35:26.000Z</published>
     <updated>2022-02-16T12:45:25.255Z</updated>
     
@@ -97,8 +145,8 @@
   
   <entry>
     <title>在发牢骚</title>
-    <link href="http://zwx-zwx.github.io/%E5%BF%83%E7%83%A6%E6%84%8F%E4%B9%B1%E5%B0%8F%E8%AE%B0/"/>
-    <id>http://zwx-zwx.github.io/%E5%BF%83%E7%83%A6%E6%84%8F%E4%B9%B1%E5%B0%8F%E8%AE%B0/</id>
+    <link href="http://zwx-zwx.github.io/2021/08/%E7%94%9F%E6%B4%BB-%E5%BF%83%E7%83%A6%E6%84%8F%E4%B9%B1%E5%B0%8F%E8%AE%B0/"/>
+    <id>http://zwx-zwx.github.io/2021/08/%E7%94%9F%E6%B4%BB-%E5%BF%83%E7%83%A6%E6%84%8F%E4%B9%B1%E5%B0%8F%E8%AE%B0/</id>
     <published>2021-08-10T08:53:36.000Z</published>
     <updated>2022-02-16T12:46:22.315Z</updated>
     
@@ -122,8 +170,8 @@
   
   <entry>
     <title>「花束般的恋爱」观后感</title>
-    <link href="http://zwx-zwx.github.io/%E3%80%8C%E8%8A%B1%E6%9D%9F%E8%88%AC%E7%9A%84%E6%81%8B%E7%88%B1%E3%80%8D%E8%A7%82%E5%90%8E%E6%84%9F/"/>
-    <id>http://zwx-zwx.github.io/%E3%80%8C%E8%8A%B1%E6%9D%9F%E8%88%AC%E7%9A%84%E6%81%8B%E7%88%B1%E3%80%8D%E8%A7%82%E5%90%8E%E6%84%9F/</id>
+    <link href="http://zwx-zwx.github.io/2021/08/%E9%98%85%E8%AF%BB-%E3%80%8C%E8%8A%B1%E6%9D%9F%E8%88%AC%E7%9A%84%E6%81%8B%E7%88%B1%E3%80%8D%E8%A7%82%E5%90%8E%E6%84%9F/"/>
+    <id>http://zwx-zwx.github.io/2021/08/%E9%98%85%E8%AF%BB-%E3%80%8C%E8%8A%B1%E6%9D%9F%E8%88%AC%E7%9A%84%E6%81%8B%E7%88%B1%E3%80%8D%E8%A7%82%E5%90%8E%E6%84%9F/</id>
     <published>2021-08-05T07:58:13.000Z</published>
     <updated>2022-03-03T14:29:02.720Z</updated>
     
@@ -146,8 +194,8 @@
   
   <entry>
     <title>Log Now Log Free</title>
-    <link href="http://zwx-zwx.github.io/Log-Now-Log-Free/"/>
-    <id>http://zwx-zwx.github.io/Log-Now-Log-Free/</id>
+    <link href="http://zwx-zwx.github.io/2021/08/%E9%9A%8F%E6%83%B3-Log-Now-Log-Free/"/>
+    <id>http://zwx-zwx.github.io/2021/08/%E9%9A%8F%E6%83%B3-Log-Now-Log-Free/</id>
     <published>2021-08-02T11:32:14.000Z</published>
     <updated>2022-02-16T12:45:05.344Z</updated>
     
